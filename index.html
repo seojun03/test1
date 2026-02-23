@@ -17,6 +17,19 @@
         </div>
         <div id="fortune">운세를 보려면 버튼을 누르세요.</div>
         <button onclick="getFortune()">운세 보기</button>
+
+        <hr>
+
+        <h2>제휴 문의</h2>
+        <form action="https://formspree.io/f/mlgwodkp" method="POST">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">보내기</button>
+        </form>
     </div>
     <script src="main.js"></script>
 </body>
