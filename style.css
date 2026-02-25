@@ -1,100 +1,136 @@
+/* General Body and Theme */
 body {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #f7f9fc;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
+    margin: 0;
 }
 
+/* Header and Navigation */
+header {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2196F3;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #2196F3;
+}
+
+/* Main Container */
 .container {
     text-align: center;
     background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 2rem;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 2rem auto;
+    width: 90%;
+}
+
+main {
+    margin-bottom: 2rem;
+}
+
+/* Content and Typography */
+h1 {
+    font-size: 2.2rem;
+    color: #2196F3;
+    margin-bottom: 1rem;
+}
+
+.intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+#fortune {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0efff;
 }
 
 button {
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.8rem;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-}
-
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.theme-switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
-    width: 60px;
-}
-
-.theme-switch input {
-    display:none;
-}
-
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-}
-
-.slider:before {
-    background-color: #fff;
-    bottom: 4px;
-    content: "";
-    height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 26px;
-}
-
-input:checked + .slider {
+    border: none;
+    border-radius: 25px;
     background-color: #2196F3;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-input:checked + .slider:before {
-    transform: translateX(26px);
+button:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
 }
 
-.slider.round {
-    border-radius: 34px;
+hr {
+    border: none;
+    border-top: 1px solid #e9ecef;
+    margin: 2.5rem 0;
 }
 
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-body.dark-mode .container {
-    background-color: #444;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+/* Sections */
+.form-section h2, .comment-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #444;
 }
 
 /* Form Styles */
 form {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -102,19 +138,123 @@ form {
 form label {
     text-align: left;
     margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
 }
 
 form input,
 form textarea {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 1rem;
     width: 100%;
-    box-sizing: border-box; /* Add this */
+    box-sizing: border-box;
 }
 
 form button {
     align-self: flex-end;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    background-color: #fff;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Theme Switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.theme-switch input { display:none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header, body.dark-mode footer {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border-color: #333;
+}
+
+body.dark-mode nav a {
+    color: #bbb;
+}
+
+body.dark-mode nav a:hover, body.dark-mode nav .logo {
+    color: #2196F3;
+}
+
+body.dark-mode h1, body.dark-mode .form-section h2, body.dark-mode .comment-section h2 {
+    color: #2196F3;
+}
+
+body.dark-mode .intro { color: #aaa; }
+body.dark-mode #fortune { background-color: #2a2a2a; border-color: #333; }
+body.dark-mode hr { border-color: #333; }
+body.dark-mode form input, body.dark-mode form textarea { 
+    background-color: #333; 
+    border-color: #555; 
+    color: #e0e0e0; 
+}
+
+/* Privacy Page Specifics */
+.container main p, .container main h2 {
+    text-align: left;
+}
+
+.container main h2 {
+    margin-top: 2rem;
 }
