@@ -11,8 +11,14 @@ function getFortune() {
     ];
     
     const fortuneDisplay = document.getElementById('fortune');
+    
+    // 애니메이션 효과를 위해 클래스 제거 후 다시 추가
+    fortuneDisplay.classList.remove('fortune-active');
+    void fortuneDisplay.offsetWidth; // 리플로우 강제 발생
+    
     const randomIndex = Math.floor(Math.random() * fortunes.length);
     fortuneDisplay.innerText = fortunes[randomIndex];
+    fortuneDisplay.classList.add('fortune-active');
 }
 
 // 다크모드/라이트모드 전환 로직
@@ -21,7 +27,6 @@ const currentTheme = localStorage.getItem('theme');
 
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
-
     if (currentTheme === 'dark') {
         toggleSwitch.checked = true;
     }
