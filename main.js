@@ -1,18 +1,40 @@
 function getFortune() {
     const fortunes = [
-        "오늘은 최고의 날이 될 것입니다!",
-        "뜻밖의 행운이 찾아올 수 있습니다.",
-        "새로운 시작을 하기에 좋은 날입니다.",
-        "긍정적인 마음을 유지하면 좋은 일이 생길 것입니다.",
-        "주변 사람들에게 친절을 베풀면 복이 되어 돌아올 것입니다."
+        "오늘은 정말 좋은 일이 생길 것 같아요! 🍀",
+        "기대하지 않았던 곳에서 행운이 찾아옵니다. ✨",
+        "차분하게 하루를 보내면 뜻밖의 성과가 있을 거예요. 🧘",
+        "새로운 인연이 생길 수 있는 날입니다. 😊",
+        "하고 싶었던 일을 시작하기에 아주 좋은 날입니다! 🚀",
+        "오늘은 맛있는 음식을 먹으며 힐링해 보세요. 🍕",
+        "긍정적인 마음가짐이 더 큰 행운을 불러옵니다. ☀️",
+        "주변 사람들에게 따뜻한 말 한마디를 건네보세요. ❤️"
     ];
-
+    
+    const fortuneDisplay = document.getElementById('fortune');
     const randomIndex = Math.floor(Math.random() * fortunes.length);
-    const fortuneElement = document.getElementById("fortune");
-    fortuneElement.textContent = fortunes[randomIndex];
+    fortuneDisplay.innerText = fortunes[randomIndex];
 }
 
-const themeSwitch = document.getElementById('checkbox');
-themeSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode');
-});
+// 다크모드/라이트모드 전환 로직
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
